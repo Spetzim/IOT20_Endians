@@ -1,0 +1,3 @@
+C:/Users/Besim/CLionProjects/Endians/cmake-build-debug/CMakeFiles/Endians.dir
+C:/Users/Besim/CLionProjects/Endians/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Besim/CLionProjects/Endians/cmake-build-debug/CMakeFiles/rebuild_cache.dir
