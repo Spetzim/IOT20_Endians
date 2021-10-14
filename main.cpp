@@ -8,8 +8,9 @@ using namespace std;
 int readFromFile(const string& fileName);
 string bin_str16_2(unsigned short value);
 void writeToFile(const string& fileName, int value);
-unsigned char extract8MiddleBits(unsigned short number);
+unsigned char extract8MiddleBits(unsigned short value);
 
+// Körning av programmet
 int main () {
     string fileName = "DataFile.dat";
 
@@ -24,29 +25,34 @@ int main () {
     return 0;
 }
 
+// Omvandlare till 8 bits som returnerar sträng
 template <typename T>
 string bin_str8(T n) {
     bitset<8> bs(n);
     return bs.to_string();
 }
 
+// Extraherar åtta mittersta bitar från ett 16 bitars värde.
 unsigned char extract8MiddleBits(unsigned short value) {
     value = value >> 4;
     unsigned short newValue = value & 0xFF;
     return newValue;
 }
 
+// Konvertering till hexdecimala tal i string
 string to_hex(unsigned short x){
     stringstream s;
     s << hex << x;
     return s.str();
 }
 
+// Tar little endian från hexen och sätter den före big endian
 unsigned short toLittleEndian(unsigned short big) {
     short little = (((big & 0xFF) << 8) | ((big & 0xFF00)>>8));
     return little;
 }
 
+// Omvandlare till 16 bits som returnerar sträng
 string bin_str16_2(unsigned short value) {
     string result;
     int count = 0;
@@ -63,6 +69,8 @@ string bin_str16_2(unsigned short value) {
     }
     return result;
 }
+
+// Metod för att läsa av filer samt kalla på de olika metoderna
 int readFromFile(const string& fileName) {
     unsigned short value;
     unsigned short result;
@@ -96,6 +104,7 @@ int readFromFile(const string& fileName) {
     return 0;
 }
 
+// Metod för att skriva till en fil
 void writeToFile(const string& fileName, int value) {
     ofstream file;
     file.open (fileName, ofstream::app);
