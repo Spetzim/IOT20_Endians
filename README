@@ -1,0 +1,29 @@
+>>1. Börjar med att representera en ström av värden i filen "DataFile.dat" genom att använda "writeToFile" metoden.
+
+>>2. Sätter variabler jag behöver använda.
+
+>>3. Läser av filen och plockar ut första värdet och konverterar det till ett Hexadecimalt värde.
+
+>>4. Gör en reverse på det Hexadecimala värdet för att få "little endian" först i mitt lagrade värde.
+        Jag gör en AND på värdet mot 8 bitar och shiftar det 8 steg åt vänster,
+        sedan gör jag en OR mot samma uträkning fast den shiftar 8 steg åt höger,
+        och vi gör en AND mot 16 bitar.
+
+>>5. Extraherar de åtta mittersta bitarna från det nya värdet där little endian ligger först och sätter min variabel till detta värde.
+        Jag shiftar värdets bitar 4 steg åt höger
+        och gör sedan en AND mot 8 första bitarna för att få ut de åtta mittersta bitarna.
+
+>>6. Lagrar både den omvända Endianen och de åtta bitarna i två olika filer med hjälp av "writeToFile" metoden.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Motivering:
+readFromFile metoden gör i princip allting. Jag hade kunna få in allting i main istället i en och samma loop men det var
+enklare att dela upp metoderna och enklare att förstå programmet. Tyvärr har jag ändå lyckats fylla readfromfile metoden
+lite väl mycket.
+
+Jag testade att få in random metoden att representera strömmen av data men fick aldrig till det med seeds så jag
+valde den enkla vägen och skriver in mina egna påhittade värden istället.
+
+Alla värden och binära tal ligger ju redan bakom programmet så jag behöver egentligen inte konvertera och printa ut allting
+men det var lättare att jobba på detta viset och dessutom snyggare tyckte jag.
